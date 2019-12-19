@@ -3,12 +3,14 @@ import Router from 'vue-router'
 import Show from "@/components/show/show";
 import Ke from "@/components/ke/ke";
 import Yue from "@/components/yue/yue";
+import Oto from "@/components/yue/oneToOne";
 import Li from "@/components/li/li";
 import Wo from "@/components/wo/wo";
 
 Vue.use(Router)
 
 export default new Router({
+  mode:"history",
   routes: [
     {
       path:"/show",
@@ -34,6 +36,11 @@ export default new Router({
       path:"/wo",
       name:"wo",
       component: Wo
+    },
+    {
+      path:"/oto",
+      name:"oto",
+      component:Oto
     }
   ]
 })
