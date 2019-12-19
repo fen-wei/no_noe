@@ -1,7 +1,8 @@
 <template>
     <div class="box">
+        <header><i class="fa fa-chevron-left" aria-hidden="true" @click="tz"></i> </header>
         <div class="con">
-hjhkjkj
+          
         </div>
         <Footer></Footer>
     </div>
@@ -10,7 +11,8 @@ hjhkjkj
 import Footer from "@/components/footer";
 export default {
     name:"wo",
-    components: {Footer}
+    components: {Footer},
+ 
 }
 </script>
 <style scoped lang="scss">
