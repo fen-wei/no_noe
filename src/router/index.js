@@ -8,6 +8,7 @@ import Wo from "@/components/wo/wo";
 import Tj from "@/components/li/zyp-Tj"
 import Zyp_Search from "@/components/li/zyp-Search"
 import Login from "@/components/li/Login"
+import Rl from "../components/show/rl/rl.vue"
 Vue.use(Router)
 
 export default new Router({
@@ -52,5 +53,10 @@ export default new Router({
        component:Login
     },
     {path:"/wo",redirect: "/login"}
+    ,{
+      path:"/rl",
+      name:"rl",
+      component: Rl
+    }
   ]
 })

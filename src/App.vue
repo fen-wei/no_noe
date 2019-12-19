@@ -25,4 +25,7 @@ export default {
         flex:1;
         overflow: scroll;
     }
+    .app{
+         box-sizing: border-box;
+    }
 </style>

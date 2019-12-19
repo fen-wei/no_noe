@@ -59,7 +59,6 @@ export default {
     footer{
         width: 100%;
         height: 1rem;
-        border-top: 0.01rem solid #ccc;
         ul{
             width: 100%;
             height: 1rem;
@@ -72,8 +71,8 @@ export default {
                     width: 0.5rem;
                     height: 0.5rem;
                     img{
-                        width: 0.5rem;
-                        height: 0.5rem;
+                       
+                        height: 0.40rem;
                     }
                 }
                 p{
