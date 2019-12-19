@@ -116,6 +116,10 @@
                     </ul>
                 </div>
             </div>
+    <div class="box">
+        <header><i class="fa fa-chevron-left" aria-hidden="true" @click="tz"></i> </header>
+        <div class="con">
+          
         </div>
         
         <Footer></Footer>
@@ -131,6 +135,7 @@ export default {
             this.$router.push("/person")
         }
     }
+ 
 }
 </script>
 <style lang="scss">

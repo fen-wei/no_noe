@@ -9,6 +9,13 @@ import 'vant/lib/index.css';
 
 Vue.use(Vant);
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+
+Vue.use(ElementUI);
+
+Vue.use(Vant);
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -16,5 +23,6 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  render: h => h(App)
 })
