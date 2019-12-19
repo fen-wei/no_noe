@@ -20,9 +20,17 @@ export default {
         height: 100%;
         display: flex;
         flex-direction: column;
+        
+    }
+    .app{
+      box-sizing: border-box;
+      
     }
     .con{
         flex:1;
         overflow: scroll;
+    }
+    .app{
+         box-sizing: border-box;
     }
 </style>
