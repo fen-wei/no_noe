@@ -28,5 +28,9 @@ export default {
     }
     .con{
         flex:1;
+        overflow: scroll;
+    }
+    .app{
+         box-sizing: border-box;
     }
 </style>
