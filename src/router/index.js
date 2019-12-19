@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Show from "@/components/show/show";
 import Ke from "@/components/ke/ke";
+import keDetail from '@/components/ke/keDetail'
 import Yue from "@/components/yue/yue";
 import Li from "@/components/li/li";
 import Wo from "@/components/wo/wo";
@@ -19,6 +20,11 @@ export default new Router({
       path:"/ke",
       name:"ke",
       component: Ke
+    },
+    {
+      path:'/keDetail',
+      name:'keDetail',
+      component:keDetail
     },
     {
       path:"/yue",

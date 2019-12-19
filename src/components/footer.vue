@@ -60,6 +60,7 @@ export default {
         width: 100%;
         height: 1rem;
         border-top: 0.01rem solid #ccc;
+        
         ul{
             width: 100%;
             height: 1rem;
