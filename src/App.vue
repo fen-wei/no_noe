@@ -23,5 +23,6 @@ export default {
     }
     .con{
         flex:1;
+        overflow: scroll;
     }
 </style>

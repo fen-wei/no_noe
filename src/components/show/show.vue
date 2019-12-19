@@ -1,7 +1,7 @@
 <template>
     <div class="box">
         <div class="con">
-            ddfdff
+            
         </div>
         <Footer></Footer>
     </div>
