@@ -5,7 +5,9 @@ import Ke from "@/components/ke/ke";
 import Yue from "@/components/yue/yue";
 import Li from "@/components/li/li";
 import Wo from "@/components/wo/wo";
-
+import Tj from "@/components/li/zyp-Tj"
+import Zyp_Search from "@/components/li/zyp-Search"
+import Login from "@/components/li/Login"
 Vue.use(Router)
 
 export default new Router({
@@ -28,12 +30,27 @@ export default new Router({
     {
       path:"/li",
       name:"li",
-      component: Li
+      component: Li,         
     },
     {
       path:"/wo",
       name:"wo",
       component: Wo
-    }
+    },   
+    {
+      path:"/li/tj",
+      name:"tj",
+      component:Tj
+    },
+    {
+      path:"/zyp-search",
+      name:'search',
+      component: Zyp_Search
+    },
+    {
+       path:"/login",
+       component:Login
+    },
+    {path:"/wo",redirect: "/login"}
   ]
 })
