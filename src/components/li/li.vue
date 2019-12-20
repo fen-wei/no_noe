@@ -8,7 +8,7 @@
                    <li><div><img src="/static/img/img1.jpg" alt=""></div><p>考点专练</p></li>
                    <li><router-link to="/li/tj?title=套卷练习"><div><img src="/static/img/img2.jpg" alt=""></div><p>套卷练习</p></router-link></li>
                    <li><div><img src="/static/img/img3.jpg" alt=""></div><p>仿真模考</p></li>
-                   <li><div><img src="/static/img/img4.jpg" alt=""></div><p>错题练习</p></li>
+                   <li><router-link to="/li/ct?title=错题练习"><div><img src="/static/img/img4.jpg" alt=""></div><p>错题练习</p></router-link></li>
                    <li><div><img src="/static/img/img5.jpg" alt=""></div><p>测评记录</p></li>
                    <li><div><img src="/static/img/img6.jpg" alt=""></div><p>习题收藏</p></li>
                    

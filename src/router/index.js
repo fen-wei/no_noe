@@ -27,6 +27,7 @@ import Tj from "@/components/li/zyp-Tj"
 import Zyp_Search from "@/components/li/zyp-Search"
 import Rl from "../components/show/rl/rl.vue"
 import Kex from "@/components/ke/kex"
+import Zyp_Ct from "@/components/li/ct"
 Vue.use(Router)
 
 export default new Router({
@@ -151,6 +152,11 @@ export default new Router({
       path:"/ms",
       name:"ms",
       component: Ms
+    },
+    {
+      path:"/li/ct",
+      name:"ct",
+      component:Zyp_Ct
     }
   ]
 })
