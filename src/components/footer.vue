@@ -29,7 +29,7 @@
                 </span>
                 <p>练习</p>
             </router-link> 
-            <router-link to="/login" tag="li" >
+            <router-link to="/wo" tag="li" >
                 <span>
                     <img src="/static/img/wode.png" alt="" v-show="!this.show">
                     <img src="/static/img/lianxi02.png" alt="" v-show="this.show">

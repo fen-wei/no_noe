@@ -7,7 +7,7 @@
                         <div class="lmn-person">
                             <img @click="person()" src="https://msmk2019.oss-cn-shanghai.aliyuncs.com/uploads/avatar.jpg" alt="">
                             <img @click="person()" src="/static/img/huangguan.png" alt="">  
-                            <span @click="person()">135****4519</span>  
+                            <span @click="to_register()">注册/登录</span>  
                             <p @click="person()"></p>
                             <p>去约课</p>    
                         </div>
@@ -116,28 +116,26 @@
                     </ul>
                 </div>
             </div>
-             </div>
-             <Footer></Footer>
-              </div>
-    <!-- <div class="box">
-        <header><i class="fa fa-chevron-left" aria-hidden="true" @click="tz"></i> </header>
-        <div class="con">
-          
         </div>
-        
-        
-    </div> -->
+        <Footer></Footer>
+    </div>
 </template>
 <script>
 import Footer from "@/components/footer";
 export default {
     name:"wo",
     components: {Footer},
+    
     methods:{
         person(){
             this.$router.push("/person")
+        },
+        to_register(){
+            this.$router.push("/zhuce")
         }
     }
+
+    
  
 }
 </script>
