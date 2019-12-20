@@ -18,7 +18,7 @@
                     <i class="el-icon-caret-top" v-if="active==2"></i>
                 </div>
             </div>
-            <div class="time" v-show="active==1">
+            <div class="time" v-if="active==1">
                 <div class="time-date">
                     <p class="time-block">日期</p>
                     <van-row type="flex" justify="space-around">
@@ -56,7 +56,7 @@
                 <div class="tea-cate">
                     <p>老师类型</p>
                     <div class="tc-items">
-                        <span></span>
+                        <span v-for="(item, index) in attrList" :key="index">{{item}}</span>
                     </div>
                 </div>
                 <div class="tea-cate">
@@ -82,13 +82,13 @@
                 <div class="tea-cate">
                     <p>年级</p>
                     <div class="tc-items">
-                        <span></span>
+                        <span v-for="(item, index) in gradeList" :key="index">{{item}}</span>
                     </div>
                 </div>
                 <div class="tea-cate">
                     <p>学科</p>
                     <div class="tc-items">
-                        <span></span>
+                        <span v-for="(item, index) in subList" :key="index">{{item}}</span>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                 <van-button @click="change()">重置</van-button>
                 <van-button @click="change()">确定</van-button>
             </div>
-            <div class="tea_list">
+            <div class="tea_list" v-show="active==0">
                 <div class="tea_item" v-for="(item, index) in teachLeve" :key="index">
                     <router-link to="/yue-plan">
                         <img :src="item.avatar" alt="">
@@ -153,7 +153,8 @@ export default {
             timeShow: false,
             currentTime: "",
             teachLeve: [],
-            attrList: [],
+            attrList: ["M1","M2","M3","M4","M5","M6","M7","M8","M9","M10",
+                "M1","M12","M13","M14","M15","M16","M17","M18","M19","M20"],
             sexs: [{ name: "男", sex: 0 }, { name: "女", sex: 1 }],
             ready: [],
             otoCourse: [],
@@ -161,6 +162,23 @@ export default {
             keywords: "",
             user_arrt_id: "",
             start: false,
+            gradeList:[
+                "小学一年级",
+                "小学二年级",
+                "小学三年级",
+                "小学四年级",
+                "小学五年级",
+                "小学六年级",
+                "初一",
+                "初二",
+                "初三",
+                "高一",
+                "高二",
+                "高三",
+            ],
+            subList:[
+                "语文","数学","英语","物理","化学","地理","生物","历史","信息与技术",
+            ]
             
 
         }
@@ -386,6 +404,7 @@ export default {
         padding: 0 0.3rem 0.8rem;
         background: #fff;
         border-top: 0.01rem solid #f1f1f1;
+        overflow: hidden;
         .tea-cate{
             padding-bottom:0.2rem;
             border-bottom:0.01rem solid #f1f1f1;
@@ -426,6 +445,9 @@ export default {
         }
     }
     .foot{
+        position: fixed;
+        display: block;
+        bottom: 0;
         width: 100%;
         height: 0.9rem;
         display: flex;
