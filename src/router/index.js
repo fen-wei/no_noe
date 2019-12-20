@@ -15,11 +15,14 @@ import Person from "@/components/wo/Person"
 import Edit from "@/components/wo/Edit"
 import Sex from "@/components/wo/Sex"
 import Course from "@/components/wo/Course"
+import Gai from "../gai/gai.vue"
+import Ms from "@/components/show/fw-msxq";
 
 
 import Tj from "@/components/li/zyp-Tj"
 import Zyp_Search from "@/components/li/zyp-Search"
 import Rl from "../components/show/rl/rl.vue"
+import Kex from "@/components/ke/kex"
 Vue.use(Router)
 
 export default new Router({
@@ -110,6 +113,21 @@ export default new Router({
       name:"rl",
       component: Rl
 
+    },
+    {
+      path:"/gai",
+      name:'gai',
+      component: Gai
+    },
+    {
+      path:"/kex",
+      name:'kex',
+      component: Kex
+    }
+    ,{
+      path:"/ms",
+      name:"ms",
+      component: Ms
     }
   ]
 })
