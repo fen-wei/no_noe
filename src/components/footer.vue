@@ -1,58 +1,37 @@
 <template>
     <footer>
         <ul>
-            <router-link to="/show" tag="li">
+            <router-link tag="li" v-for="(item,key) in list" :to="item.src" :key="key" >
                 <span>
-                    <img src="/static/img/shouye.png" alt="" v-show="!this.show">
-                    <img src="/static/img/shouye02.png" alt="" v-show="this.show">
+                    <img :src="item.img1" alt="">
                 </span>
-                <p>首页</p>
-            </router-link> 
-            <router-link to="/ke" tag="li">
-                <span>
-                    <img src="/static/img/kechengpng.png" alt="" v-show="!this.show">
-                    <img src="/static/img/kecheng02.png" alt="" v-show="this.show">
-                </span>
-                <p>课程</p>
-            </router-link> 
-            <router-link to="/yue" tag="li">
-                <span>
-                    <img src="/static/img/yueke.png" alt="" v-show="!this.show">
-                    <img src="/static/img/yueke02.png" alt="" v-show="this.show">
-                </span>
-                <p>约课记录</p>
-            </router-link> 
-            <router-link to="/li" tag="li">
-                <span>
-                    <img src="/static/img/lianxi.png" alt="" v-show="!this.show">
-                    <img src="/static/img/lianxi02.png" alt="" v-show="this.show">
-                </span>
-                <p>练习</p>
-            </router-link> 
-            <router-link to="/wo" tag="li" >
-                <span>
-                    <img src="/static/img/wode.png" alt="" v-show="!this.show">
-                    <img src="/static/img/lianxi02.png" alt="" v-show="this.show">
-                </span>
-                <p>我的</p>
-            </router-link> 
+                <p>{{item.title}}</p>
+            </router-link>
         </ul>
     </footer>
 </template>
 <script>
 export default {
-    name:"fot",
+    name:"footer",
     data(){
         return{
-            show: false
+            list:[
+                {title:"首页",img1:"/static/img/shouye.png",img2:"/static/img/shouye02.png",src:"/show"},
+                {title:"课程",img1:"/static/img/kechengpng.png",img2:"/static/img/kecheng02.png",src:"/ke"},
+                {title:"约课记录",img1:"/static/img/yueke.png",img2:"/static/img/yueke02.png",src:"/yue"},
+                {title:"练习",img1:"/static/img/lianxi.png",img2:"/static/img/star.png",src:"/li"},
+                {title:"我的",img1:"/static/img/wode.png",img2:"/static/img/lianxi02.png",src:"/wo"}
+            ]
         }
     },
-    methods:{
-        add(){
-            console.log("11")
-            this.show = !this.show;
-        }
-    }
+    mounted(){
+    //    console.log(this.$route.path)
+      this.list.forEach((v)=>{    //v指的是list数组里的每一项
+          if(this.$route.path==v.src){
+              v.img1=v.img2
+          }
+      })
+   }
 }
 </script>
 <style scoped lang="scss">
@@ -60,27 +39,28 @@ export default {
         width: 100%;
         height: 1rem;
         border-top: 0.01rem solid #ccc;
-        
-        ul{
-            width: 100%;
-            height: 1rem;
-            display: flex;
-            align-items: center;
-            li{
-                width: 20%;
-                text-align: center;
-                span{
-                    width: 0.5rem;
-                    height: 0.5rem;
-                    img{
-                       
-                        height: 0.40rem;
-                    }
-                }
-                p{
-                    font-size: 0.12rem;
-                }
-            }
-        }
+    }
+    footer>ul{
+        width: 100%;
+        height: 1rem;
+        display: flex;
+        align-items: center;
+    }
+    footer>ul>li{
+        width: 20%;
+        text-align: center;
+    }
+    footer>ul>li>span{
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+    footer>ul>li>span>img{
+        height: 0.40rem;
+    }
+    footer>ul>li>p{
+        font-size: 0.12rem;       
+    }
+    footer>ul .router-link-active>p{
+        color:rgb(235, 97, 0);
     }
 </style>

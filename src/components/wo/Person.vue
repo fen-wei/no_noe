@@ -14,7 +14,7 @@
                     <span>
                         <img src="https://msmk2019.oss-cn-shanghai.aliyuncs.com/uploads/avatar.jpg" alt="">
                         <van-icon class="vion" name="arrow" @click="showPopup"/>
-                        <van-popup v-model="show" position="bottom" :style="{ height: '40%' }">
+                        <van-popup v-model="show" position="bottom" :style="{ height: '30%' }">
                             <ul class="s-thing">
                                 <li>拍照</li>
                                 <li>从手机相册选择</li>
@@ -49,7 +49,7 @@
                     <span>
                         <span>2001-07-19</span>   
                         <van-icon name="arrow" @click="showPopup1"/>
-                        <van-popup v-model="show1" position="bottom" :style="{ height: '40%' }">
+                        <van-popup v-model="show1" position="bottom" :style="{ height: '30%' }">
                             <van-datetime-picker
                                 v-model="currentDate"
                                 type="date"
@@ -62,7 +62,7 @@
                     <span>
                         <span>北京,北京市,东城区</span>   
                         <van-icon name="arrow" @click="showPopup2"/>
-                        <van-popup v-model="show2" position="bottom" :style="{ height: '40%' }">
+                        <van-popup v-model="show2" position="bottom" :style="{ height: '30%' }">
                             <van-area :area-list="areaList" />
                         </van-popup>
                     </span>
@@ -79,7 +79,7 @@
                     <span>
                         <span>高三</span>   
                         <van-icon name="arrow" @click="showPopup3"/>
-                        <van-popup v-model="show3" position="bottom" :style="{ height: '40%' }">
+                        <van-popup v-model="show3" position="bottom" :style="{ height: '30%' }">
                                 <van-picker
                                 show-toolbar
                                 :columns="columns"
@@ -248,8 +248,8 @@ export default {
     }
     .s-thing>li{
         text-align: center;
-        font-size:0.3rem;
-        line-height: 0.7rem;
+        font-size:0.34rem;
+        line-height: 1rem;
         color:#000;
     }
     
