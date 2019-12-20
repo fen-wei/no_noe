@@ -40,87 +40,6 @@
             "price":"￥0.01"
         },
         {
-            "detail":"detail4",
-            "id":4,
-            "title":"SZS提醒大班课",
-            "time":"10月24日 15:40~10月25日 00::00",
-            "hour":"共4课时",
-            "img1":"avatar 2.jpg",
-            "teacher1":"宋老师",
-            "sign":"3人已报名",
-            "price":"￥0.01"
-        },
-        {
-            "detail":"detail5",
-            "id":5,
-            "title":"SZS提醒大班课1008",
-            "time":"10月08日 16:30~10月08日 23::55",
-            "hour":"共2课时",
-            "img1":"avatar.jpg",
-            "teacher1":"明老师",
-            "sign":"2人已报名",
-            "price":"￥1.00"
-        },
-        {
-            "detail":"detail6",
-            "id":6,
-            "title":"95系统课",
-            "hour":"共3课时",
-            "img1":"avatar 2.jpg",
-            "teacher1":"初见讲师",
-            "img2":"avatar 2.jpg",
-            "teacher2":"黄老师",
-            "img3":"avatar 2.jpg",
-            "teacher3":"黄老师2",
-            "sign":"0人已报名",
-            "price":"￥2.00"
-        },
-        {
-            "detail":"detail7",
-            "id":7,
-            "title":"95面授课1222",
-            "time":"09月05日 21:00~09月05日 22::00",
-            "hour":"共1课时",
-            "img2":"avatar.jpg",
-            "teacher2":"优惠券预约讲师",
-            "img1":"avatar3.jpg",
-            "teacher1":"后台添加XF",
-            "sign":"2人已报名",
-            "price":"￥2.00"
-        },
-        {
-            "detail":"detail8",
-            "id":8,
-            "title":"95图文课",
-            "hour":"共1课时",
-            "img2":"avatar.jpg",
-            "teacher2":"优惠券预约讲师",
-            "img1":"avatar 2.jpg",
-            "teacher1":"宋老师",
-            "sign":"1人已报名",
-            "price":"￥2.00"
-        },
-        {
-            "detail":"detail9",
-            "id":9,
-            "title":"95音频课",
-            "hour":"共1课时",
-            "img1":"avatar 2.jpg",
-            "teacher1":"小黄人老师",
-            "sign":"1人已报名",
-            "price":"￥1.00"
-        },
-        {
-            "detail":"detail10",
-            "id":10,
-            "title":"111",
-            "time":"10月28日 14:43~10月28日 23::00",
-            "hour":"共2课时",
-            "img1":"avatar.jpg",
-            "teacher1":"acme",
-            "sign":"2人已报名",
-            "price":"免费"
-        }, {
             "detail":"detail1",
             "id":1,
             "title":"SZS提醒大班课4",
@@ -154,82 +73,90 @@
             "title":"SZS提醒大班课2",
             "time":"10月25日 11:53~10月25日 23::00",
             "hour":"共3课时",
-            "img2":"avatar 2.jpg",
-            "teacher2":"宋老师",
-            "sign":"2人已报名",
-            "price":"￥0.01"
-        },
-        {
-            "detail":"detail4",
-            "id":4,
-            "title":"SZS提醒大班课",
-            "time":"10月24日 15:40~10月25日 00::00",
-            "hour":"共4课时",
-            "img2":"avatar 2.jpg",
-            "teacher2":"宋老师",
-            "sign":"3人已报名",
-            "price":"￥0.01"
-        },
-        {
-            "detail":"detail5",
-            "id":5,
-            "title":"SZS提醒大班课1008",
-            "time":"10月08日 16:30~10月08日 23::55",
-            "hour":"共2课时",
-            "img2":"avatar.jpg",
-            "teacher2":"明老师",
-            "sign":"2人已报名",
-            "price":"￥1.00"
-        },
-        {
-            "detail":"detail6",
-            "id":6,
-            "title":"95系统课",
-            "hour":"共3课时",
-            "img1":"avatar 2.jpg",
-            "teacher1":"初见讲师",
-            "img2":"avatar 2.jpg",
-            "teacher2":"黄老师",
-            "img3":"avatar 2.jpg",
-            "teacher3":"黄老师2",
-            "sign":"0人已报名",
-            "price":"￥2.00"
-        },
-        {
-            "detail":"detail7",
-            "id":7,
-            "title":"95面授课1222",
-            "time":"09月05日 21:00~09月05日 22::00",
-            "hour":"共1课时",
-            "img2":"avatar.jpg",
-            "teacher2":"优惠券预约讲师",
-            "img1":"avatar3.jpg",
-            "teacher1":"后台添加XF",
-            "sign":"2人已报名",
-            "price":"￥2.00"
-        },
-        {
-            "detail":"detail8",
-            "id":8,
-            "title":"95图文课",
-            "hour":"共1课时",
-            "img2":"avatar.jpg",
-            "teacher2":"优惠券预约讲师",
             "img1":"avatar 2.jpg",
             "teacher1":"宋老师",
-            "sign":"1人已报名",
-            "price":"￥2.00"
+            "sign":"2人已报名",
+            "price":"￥0.01"
         },
         {
-            "detail":"detail9",
-            "id":9,
-            "title":"95音频课",
-            "hour":"共1课时",
+            "detail":"detail1",
+            "id":1,
+            "title":"SZS提醒大班课4",
+            "time":"10月25日 16:32~10月28日 23::00",
+            "hour":"共12课时",
+            "img1":"avatar.jpg",
+            "teacher1":"约课讲师勿动",
+            "img2":"avatar 2.jpg",
+            "teacher2":"宋老师",
+            "img3":"avatar3.jpg",
+            "teacher3":"吕老师",
+            "sign":"3人已报名",
+            "price":"免费"
+        },
+        {
+            "detail":"detail2",
+            "id":2,
+            "title":"SZS提醒大班课3",
+            "time":"10月25日 12:05~10月25日 23::00",
+            "hour":"共7课时",
+            "img1":"avatar.jpg",
+            "teacher1":"约课讲师勿动",
+            "img2":"avatar 2.jpg",
+            "teacher2":"宋老师",
+            "sign":"2人已报名",
+            "price":"免费"
+        },
+        {
+            "detail":"detail3",
+            "id":3,
+            "title":"SZS提醒大班课2",
+            "time":"10月25日 11:53~10月25日 23::00",
+            "hour":"共3课时",
             "img1":"avatar 2.jpg",
-            "teacher1":"小黄人老师",
-            "sign":"1人已报名",
-            "price":"￥1.00"
+            "teacher1":"宋老师",
+            "sign":"2人已报名",
+            "price":"￥0.01"
+        },
+        {
+            "detail":"detail1",
+            "id":1,
+            "title":"SZS提醒大班课4",
+            "time":"10月25日 16:32~10月28日 23::00",
+            "hour":"共12课时",
+            "img1":"avatar.jpg",
+            "teacher1":"约课讲师勿动",
+            "img2":"avatar 2.jpg",
+            "teacher2":"宋老师",
+            "img3":"avatar3.jpg",
+            "teacher3":"吕老师",
+            "sign":"3人已报名",
+            "price":"免费"
+        },
+        {
+            "detail":"detail2",
+            "id":2,
+            "title":"SZS提醒大班课3",
+            "time":"10月25日 12:05~10月25日 23::00",
+            "hour":"共7课时",
+            "img1":"avatar.jpg",
+            "teacher1":"约课讲师勿动",
+            "img2":"avatar 2.jpg",
+            "teacher2":"宋老师",
+            "sign":"2人已报名",
+            "price":"免费"
+        },
+        {
+            "detail":"detail3",
+            "id":3,
+            "title":"SZS提醒大班课2",
+            "time":"10月25日 11:53~10月25日 23::00",
+            "hour":"共3课时",
+            "img1":"avatar 2.jpg",
+            "teacher1":"宋老师",
+            "sign":"2人已报名",
+            "price":"￥0.01"
         }
+       
 
     ],
     "detail1":[
@@ -256,61 +183,8 @@
                     "teacher":"宋老师",
                     "up":"10月25日 15:15-23:00",
                     "les":"回放"
-                },
-                {
-                    "top":"课程3-15分钟",
-                    "teacher":"宋老师",
-                    "up":"10月25日 16:32-23:00",
-                    "les":"回放"
-                },
-                {
-                    "top":"课程4-6小时",
-                    "teacher":"宋老师",
-                    "up":"10月25日 23:45-23:59",
-                    "les":"回放"
-                },
-                {
-                    "top":"课程5-1小时",
-                    "teacher":"宋老师",
-                    "up":"10月25日 18:47-23:00",
-                    "les":"回放"
-                },
-                {
-                    "top":"课程6-15分钟",
-                    "teacher":"宋老师",
-                    "up":"10月25日 17:59-23:00",
-                    "les":"回放"
-                },
-                {
-                    "top":"课程1-6小时",
-                    "teacher":"宋老师",
-                    "up":"10月25日 20:27-23:00",
-                    "les":"回放"
-                },
-                {
-                    "top":"课程2-1小时",
-                    "teacher":"宋老师",
-                    "up":"10月25日 15:30-23:00",
-                    "les":"回放"
-                },
-                {
-                    "top":"课程3-15分钟",
-                    "teacher":"宋老师",
-                    "up":"10月25日 14:47-23:00",
-                    "les":"回放"
-                },
-                {
-                    "top":"课程A-6小时",
-                    "teacher":"宋老师",
-                    "up":"10月25日 20:35-23:00",
-                    "les":"回放"
-                },
-                {
-                    "top":"课程A-1小时",
-                    "teacher":"宋老师",
-                    "up":"10月25日 15:37-23:00",
-                    "les":"回放"
                 }
+               
             ]
         }
         
