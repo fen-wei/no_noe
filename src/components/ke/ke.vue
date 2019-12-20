@@ -165,7 +165,7 @@ value1: 0,
         background: white;
         font-size: .18rem;
         span{
-          font-size:18px;
+          font-size:0.2rem;
         }
     }
     .con{

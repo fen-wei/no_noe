@@ -90,6 +90,6 @@ export default {
         position: relative;
     }
     .s-sex>ul>li:nth-child(2){
-        background: url(/static/img/duigou.png) no-repeat 6.2rem 0.44rem;
+        background: url(/static/img/duigou.png) no-repeat 5.8rem;
     }
 </style>
