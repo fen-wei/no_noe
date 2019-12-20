@@ -13,12 +13,12 @@
                         </div>
                         <div class="lmn-price">
                             <ul>
-                                <li>
+                                <li @click="study()">
                                     <h1>0</h1>
                                     <h6>我的特色课</h6>
                                     <p>已购特色课程的学习</p>
                                 </li>
-                                <li>
+                                <li @click="to_yue()">
                                     <h1>0</h1>
                                     <h6>一对一辅导</h6>
                                     <p>我的一对一老师辅导</p>
@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="lmn-item">
                                     <img src="/static/img/shezhi.png" alt="">
-                                    <p>设置</p>
+                                    <p @click="setup()">设置</p>
                                 </div>
                             </div>   
                         </li>
@@ -132,6 +132,15 @@ export default {
         },
         to_register(){
             this.$router.push("/zhuce")
+        },
+        setup(){
+            this.$router.push("/setup")
+        },
+        study(){
+            this.$router.push("/study")
+        },
+        to_yue(){
+            this.$router.push("/yue")
         }
     }
 

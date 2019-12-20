@@ -8,7 +8,9 @@ import Oto from "@/components/yue/oneToOne";
 import Li from "@/components/li/li";
 
 import Zhuce from "@/components/wo/Zhuce"
+import Setup from "@/components/wo/Setup"
 import Login from "@/components/wo/Login"
+import Study from "@/components/wo/Study"
 import Wo from "@/components/wo/wo";
 import Yu from "@/components/show/fw-yuyue";
 import Person from "@/components/wo/Person"
@@ -61,6 +63,11 @@ export default new Router({
       component: Edit
     },
     {
+      path:"/study",
+      name:"study",
+      component: Study
+    },
+    {
       path:"/sex",
       name:"sex",
       component: Sex
@@ -104,7 +111,11 @@ export default new Router({
       name:"zhuce",
       component:Zhuce
     },
-    
+    {
+      path:"/setup",
+      name:"setup",
+      component:Setup
+    },  
     {
       path:"/rl",
       name:"rl",
