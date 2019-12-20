@@ -1,40 +1,12 @@
 <template>
     <footer>
-        <ul>
-            <router-link to="/show" tag="li">
+       
+        <ul>                                          
+              <router-link v-for="(v,i) in list" :to="v.src" tag="li" :key="i"  >
                 <span>
-                    <img src="/static/img/shouye.png" alt="" v-show="!this.show">
-                    <img src="/static/img/shouye02.png" alt="" v-show="this.show">
+                    <img :src="v.img">
                 </span>
-                <p>首页</p>
-            </router-link> 
-            <router-link to="/ke" tag="li">
-                <span>
-                    <img src="/static/img/kechengpng.png" alt="" v-show="!this.show">
-                    <img src="/static/img/kecheng02.png" alt="" v-show="this.show">
-                </span>
-                <p>课程</p>
-            </router-link> 
-            <router-link to="/yue" tag="li">
-                <span>
-                    <img src="/static/img/yueke.png" alt="" v-show="!this.show">
-                    <img src="/static/img/yueke02.png" alt="" v-show="this.show">
-                </span>
-                <p>约课记录</p>
-            </router-link> 
-            <router-link to="/li" tag="li">
-                <span>
-                    <img src="/static/img/lianxi.png" alt="" v-show="!this.show">
-                    <img src="/static/img/lianxi02.png" alt="" v-show="this.show">
-                </span>
-                <p>练习</p>
-            </router-link> 
-            <router-link to="/login" tag="li" >
-                <span>
-                    <img src="/static/img/wode.png" alt="" v-show="!this.show">
-                    <img src="/static/img/lianxi02.png" alt="" v-show="this.show">
-                </span>
-                <p>我的</p>
+                <p :style="v.zt?'color:black':'color:rgb(235, 97, 0)'">{{v.title}}</p>
             </router-link> 
         </ul>
     </footer>
@@ -44,14 +16,27 @@ export default {
     name:"fot",
     data(){
         return{
-            show: false
+            show: false,
+            list:[
+               {title:"首页",src:"/show",img:"/static/img/shouye.png",zt:true,img2:"/static/img/shouye02.png"},
+               {title:"课程",src:"/ke",img:"/static/img/kechengpng.png",zt:true,img2:"/static/img/kecheng02.png"},
+               {title:"约课记录",src:"/yue",img:"/static/img/yueke.png",zt:true,img2:"/static/img/yueke02.png"},
+               {title:"练习",src:"/li",img:"/static/img/lianxi.png",zt:true,img2:"/static/img/lianxi02.png"},
+               {title:"我的",src:"/wo",img:"/static/img/wode.png",zt:true,img2:"/static/img/lianxi02.png"}
+            ]
         }
     },
-    methods:{
-        add(){
-            console.log("11")
-            this.show = !this.show;
-        }
+    mounted () {
+        console.log(this.$route)
+        this.list.forEach(data=>{
+           if(this.$route.path==data.src){
+               console.log(data.img="/static/img"+data.src+"02.png")
+               data.img=data.img2
+               data.zt=false
+           }
+        })
+       
+       
     }
 }
 </script>
