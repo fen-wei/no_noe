@@ -2,78 +2,17 @@
     <div class="box">
         <Header>
           <span>特色课</span>
-
           </Header>
-          
+           <van-dropdown-menu active-color="#ee0a24">
+      <van-dropdown-item v-model="value1" :options="option1" />
+     <van-dropdown-item v-model="value2" :options="option2" />
+      <van-dropdown-item v-model="value3" :options="option3" />
+</van-dropdown-menu>
       <div class="con">
          
-              <div class="content-one">
-                <p @click="cate">分类</p>
-                <p @click="sort">排序</p>
-                <p @click="select">筛选</p>
-              </div>
-
-               <div class="cate" v-show="flag">
-                  <div class="cate-one">
-                    <div class="cate-one-class">年级</div>
-                    <div class="cate-one-class-a">
-                        <div class="cate-one-class-a-o">初一</div>
-                        <div class="cate-one-class-a-o">初二</div>
-                        <div class="cate-one-class-a-o">初三</div>
-                        <div class="cate-one-class-a-o">高一</div>
-                    </div>
-                     <div class="cate-one-class-a">
-                        <div class="cate-one-class-a-o">高二</div>
-                        <div class="cate-one-class-a-o">高三</div>
-                    </div>
-                  </div>
-
-                  <div class="cate-one">
-                    <div class="cate-one-class">学科</div>
-                    <div class="cate-one-class-a">
-                        <div class="cate-one-class-a-o">语文</div>
-                        <div class="cate-one-class-a-o">数学</div>
-                        <div class="cate-one-class-a-o">英语</div>
-                        <div class="cate-one-class-a-o">历史</div>
-                    </div>
-                     <div class="cate-one-class-a">
-                        <div class="cate-one-class-a-o">地理</div>
-                        <div class="cate-one-class-a-o">物理</div>   
-                       <div class="cate-one-class-a-o">化学</div>
-
-                    </div>
-                  </div>
-
-
-               <div class="cate-two">
-                    <div class="cate-one-class">等级</div>
-                    <div class="cate-one-class-a">
-                        <div class="cate-one-class-a-o">高级</div>
-                        <div class="cate-one-class-a-o">低级</div>
-                        <div class="cate-one-class-a-o">中级</div>
-                      
-                    </div>
-                    
-                  </div>
-
-                     <div class="cate-two">
-                      <div class="cate-one-class">资深程度</div>
-                      <div class="cate-one-class-a">
-                          <div class="cate-one-class-a-o">入门</div>
-                          <div class="cate-one-class-a-o">一般</div>
-                          <div class="cate-one-class-a-o">熟悉</div>
-                           <div class="cate-one-class-a-o">老手</div>
-                      </div>
-                    
-                  </div>
-
-
-                   <div class="cate-btn">
-                      <button>重置</button>
-                      <button>确定</button>
-                   </div>
-              </div>
-
+            
+   <div class="quanbu-qwy">
+     
               <div class="sort" v-show="flags"> 
                   <div class="sort-content">
                        <div class="sort-content-i">综合排序</div>
@@ -114,21 +53,15 @@
 
                
                  <router-link tag="div" :to="'/keDetail?id='+item.detail" class="content-two-o" v-for="(item,key) in arr" :key="key">  
-                     <h1>{{item.title}}</h1>
-                    <div class="content-two-o-time"><span>{{item.time}}</span><span>|{{item.hour}}</span></div>
+                    <div class="qwy-i">
+                       <div class="qwy-cop">{{item.title}}</div>
+                    <div class="content-two-o-time"><van-icon name="clock-o" /><span>{{item.time}}</span><span>|{{item.hour}}</span></div>
                     <div class="content-two-o-img">
                         <div class="content-two-o-img-y">
                           <img :src="'/static/img/'+item.img1" alt="">
                           <p>{{item.teacher1}}</p>
                         </div>
-                        <div class="content-two-o-img-y">
-                          <img :src="'/static/img/'+item.img2" alt="">
-                          <p>{{item.teacher2}}</p>
-                        </div>
-                        <div class="content-two-o-img-y">
-                          <img :src="'/static/img/'+item.img3" alt="">
-                          <p>{{item.teacher3}}</p>
-                        </div>
+                    </div>
                     </div>
 
                     <div class="content-two-o-bootom">
@@ -142,6 +75,7 @@
                    
 
               </div>
+   </div>
       </div> 
       <Footer></Footer>
   </div>
@@ -150,18 +84,41 @@
 <script>
 import Footer from "@/components/footer";
 import axios from "axios";
+import Kec from "./kec"
 export default {
+
+    
     name:"ke",
-    components: {Footer},
+    components: {Footer,Kec},
     data(){
         return{
             arr:[],
              flag:false,
                flags:false,
                 flagss:false,
+value1: 0,
+      value2: 'a',
+      value3: 'a',
+      option1: [
+        { text: '分类', value: 0 },
+        { text: '新款商品', value: 1 },
+        { text: '活动商品', value: 2 }
+      ],
+      option2: [
+        { text: '排序', value: 'a' },
+        { text: '好评排序', value: 'b' },
+        { text: '销量排序', value: 'c' },
+      ],
+      option3: [
+        { text: '筛选', value: 'a' },
+        { text: '好评排序', value: 'b' },
+        { text: '销量排序', value: 'c' },
+      ],
         }
     },
     mounted() {
+
+
          axios.get('/static/course.json').then(res=>{
                 // state.arr=res.data.data
                 // console.log(state.arr)
@@ -172,15 +129,15 @@ export default {
             })
     },
     methods: {
- cate(){
-      this.flag=!this.flag
-    },
-    sort(){
-      this.flags=!this.flags
-    },
-select(){
-      this.flagss=!this.flagss
-    },
+      cate(){
+          this.flag=!this.flag
+        },
+      sort(){
+        this.flags=!this.flags
+      },
+      select(){
+        this.flagss=!this.flagss
+      },
 
     },
 }
@@ -195,14 +152,18 @@ select(){
     .box{
         background:white;
     }
+    .qwy-cop{
+      color: #0a243f;
+      font-size: 0.32rem; 
+      margin-top: 0.2rem; 
+    }
     header{
         width: 100%;
-        height: .83rem;
+        height: .86rem;
         text-align: center;
-        line-height: .39rem;
+        line-height: .86rem;
         background: white;
         font-size: .18rem;
-        font-weight: bold;
         span{
           font-size:18px;
         }
@@ -215,7 +176,7 @@ select(){
         width: 100%;
         height: 2rem;
         overflow: scroll;
-        background: #ccc;
+        background: #f0f2f5;
     }
    .select{
     width: 100%;
@@ -277,18 +238,17 @@ select(){
       top: .9rem;
       left: 0;
       background-color:rgba(0,0,0,0.5);
-      z-index: 200;
       .sort-content{
+        margin-top: 0.8rem; 
         width: 100%;
-        height: 5.2rem;
+        height: 100%;
         background: white;
         .sort-content-i{
             width: 100%;
-            height: 20%;
+            height: 1rem;
             border-bottom:1px solid grey; 
             text-align: center;
-            line-height:.5rem;
-            color: grey;
+            line-height:1rem;
         }
         .sort-content-i:hover{
           color: orangered;
@@ -299,11 +259,8 @@ select(){
   .cate{
     width: 100%;
     height: 5.2rem;
-    // position:fixed;
-    // top:.9rem;
-    // left:0;
     background: white;
-    z-index: 200;
+    margin-top:  0.80rem;
     .cate-btn{
       display: flex;
       align-items: center;
@@ -396,20 +353,14 @@ select(){
   }
   .content-one{
     width: 100%;
-    height: .66rem;
+    height: .80rem;
     background:white;
-    border-top: 1px dashed grey;
-    border-bottom: 1px dashed grey;
+    border-bottom: 1px solid #f0f2f5;
     position: fixed;
-    top: .66rem;
     left: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    // position: fixed;
-    // top: .39rem;
-    // left: 0;
-    z-index: 100;
     p:hover{
       color: orange;
     }
@@ -431,23 +382,19 @@ select(){
 
     }
     .content-two-o{
-        margin: 0 auto;
-      width: 87%;
-      height: 2.65rem;
-      // overflow: hidden;
+      height: 2.8rem;
       background: white;
       border-radius: .15rem;
-      margin-top: .2rem;
-      h1{
-        margin-left: .2rem;
-        margin-top: .2rem;
-        font-weight: bold;
-        font-size: .16rem;    
-        }
+      margin-top: .28rem;
+      padding: 0.25rem 0.44rem;
+      .qwy-i{
+        height: 1.8rem;
+      }
         .content-two-o-time{
-          width: 100%;
-          margin-left: .1rem;
-          margin-top: .15rem;
+          display: flex;
+          align-items: center;
+          font-size: 0.24rem;
+          margin-top: 0.2rem; 
           span{
             font-size: .14rem;
             padding-left: .1rem;
@@ -455,16 +402,14 @@ select(){
         }
         .content-two-o-img{
             width: 100%;
-            margin-left: .1rem;
-            margin-top: .15rem;
+            margin-top: .3rem;
             display: flex;
             .content-two-o-img-y{
               display: flex;
-              margin-left: .1rem;
               align-items: center;
                 img{
-                  width: .27rem;
-                  height: .27rem;
+                  width: .52rem;
+                  height: .52rem;
                   border-radius: 50%;
                 }
                 p{
@@ -476,12 +421,11 @@ select(){
         }
         .content-two-o-bootom{
             width: 100%;
-            height: .4rem;
-            border-radius: .1rem;
+            height: 0.88rem;
             margin-top: .15rem;
             // background: red;
             display: flex;
-            border-top: 1px solid grey;
+            border-top: 1px solid #f0f2f5;
             align-items: center;
             justify-content: space-between;
             p:nth-of-type(1){
@@ -497,5 +441,8 @@ select(){
             }
         }
     }
+  }
+  .quanbu-qwy{
+    padding: 0 0.28rem
   }
 </style>

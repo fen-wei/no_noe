@@ -5,6 +5,8 @@ import Ke from "@/components/ke/ke";
 import keDetail from '@/components/ke/keDetail'
 import Yue from "@/components/yue/yue";
 import Oto from "@/components/yue/oneToOne";
+import YuePlan from "@/components/yue/yue-plan";
+import TaeDetai from "@/components/yue/teacher";
 import Li from "@/components/li/li";
 
 import Zhuce from "@/components/wo/Zhuce"
@@ -17,11 +19,14 @@ import Person from "@/components/wo/Person"
 import Edit from "@/components/wo/Edit"
 import Sex from "@/components/wo/Sex"
 import Course from "@/components/wo/Course"
+import Gai from "../gai/gai.vue"
+import Ms from "@/components/show/fw-msxq";
 
 
 import Tj from "@/components/li/zyp-Tj"
 import Zyp_Search from "@/components/li/zyp-Search"
 import Rl from "../components/show/rl/rl.vue"
+import Kex from "@/components/ke/kex"
 Vue.use(Router)
 
 export default new Router({
@@ -92,6 +97,16 @@ export default new Router({
       component:Oto
     },   
     {
+      path:"/yue-plan",
+      name:"yue-plan",
+      component:YuePlan
+    },
+    {
+      path:"/teacher",
+      name:"teadetail",
+      component:TaeDetai
+    },
+    {
       path:"/li/tj",
       name:"tj",
       component:Tj
@@ -121,6 +136,21 @@ export default new Router({
       name:"rl",
       component: Rl
 
+    },
+    {
+      path:"/gai",
+      name:'gai',
+      component: Gai
+    },
+    {
+      path:"/kex",
+      name:'kex',
+      component: Kex
+    }
+    ,{
+      path:"/ms",
+      name:"ms",
+      component: Ms
     }
   ]
 })

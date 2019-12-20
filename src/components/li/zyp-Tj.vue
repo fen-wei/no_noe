@@ -166,7 +166,14 @@ body,
    height: 0.1rem;
     
 }
+.van-tree-select{
+  height: 3.3rem !important;
+}
+.van-tree-select__content{
+  height: 3rem;
+}
 .zyp-ul{
+     
     li{
         height: 1rem;
         text-align: center;

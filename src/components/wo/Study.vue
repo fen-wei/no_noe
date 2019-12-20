@@ -13,7 +13,7 @@
         <div class="d-tab">
             <van-tabs>
                 <van-tab v-for="(item,key) in arr" :title="arr[key]">
-
+                    
                 </van-tab>
             </van-tabs>
         </div>
