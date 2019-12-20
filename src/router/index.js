@@ -5,6 +5,8 @@ import Ke from "@/components/ke/ke";
 import keDetail from '@/components/ke/keDetail'
 import Yue from "@/components/yue/yue";
 import Oto from "@/components/yue/oneToOne";
+import YuePlan from "@/components/yue/yue-plan";
+import TaeDetai from "@/components/yue/teacher";
 import Li from "@/components/li/li";
 import Wo from "@/components/wo/wo";
 import Yu from "@/components/show/fw-yuyue";
@@ -81,6 +83,16 @@ export default new Router({
       name:"oto",
       component:Oto
     },   
+    {
+      path:"/yue-plan",
+      name:"yue-plan",
+      component:YuePlan
+    },
+    {
+      path:"/teacher",
+      name:"teadetail",
+      component:TaeDetai
+    },
     {
       path:"/li/tj",
       name:"tj",
