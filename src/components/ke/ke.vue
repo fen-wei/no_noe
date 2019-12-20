@@ -162,6 +162,8 @@ export default {
         }
     },
     mounted() {
+
+
          axios.get('/static/course.json').then(res=>{
                 // state.arr=res.data.data
                 // console.log(state.arr)

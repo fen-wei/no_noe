@@ -6,7 +6,7 @@
                 <span>
                     <img :src="v.img">
                 </span>
-                <p>{{v.title}}</p>
+                <p :style="v.zt?'color:black':'color:rgb(235, 97, 0)'">{{v.title}}</p>
             </router-link> 
         </ul>
     </footer>
@@ -32,6 +32,7 @@ export default {
            if(this.$route.path==data.src){
                console.log(data.img="/static/img"+data.src+"02.png")
                data.img=data.img2
+               data.zt=false
            }
         })
        

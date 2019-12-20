@@ -100,7 +100,9 @@ name:"keDetail",
     //   this.coruse()
       this.add()
   },
-  mounted() {}
+  mounted() {
+
+  }
 };
 </script>
 <style lang="scss" scoped>
