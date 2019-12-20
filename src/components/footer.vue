@@ -39,7 +39,7 @@
             </ul>
              -->
         <ul>
-              <router-link v-for="(v,i) in list" @click="add(i)" :to="v.src" tag="li" :key="i"  >
+              <router-link v-for="(v,i) in list" :to="v.src" tag="li" :key="i"  >
                 <span>
                     <img :src="v.img">
                     <!-- <img :src="v.img2" alt="" > -->
@@ -64,17 +64,6 @@ export default {
                {title:"我的",src:"/wo",img:"/static/img/wode.png",zt:true,img2:"/static/img/lianxi02.png"}
             ]
         }
-    },
-    methods:{
-        add(i){
-        //    this.list[i].zt=!this.list[i].zt
-          alert(111)
-        }
-    },
-    beforeRouteEnter(to,from,next){
-     console.log(to)
-     console.log(from)
-     next(true)
     },
     mounted () {
         console.log(this.$route)
