@@ -12,7 +12,7 @@
     <div class="d-con">
         <div class="d-tab">
             <van-tabs>
-                <van-tab v-for="(item,key) in arr" :title="arr[key]">
+                <van-tab v-for="(item,key) in arr" :key="key" :title="arr[key]">
                     
                 </van-tab>
             </van-tabs>
