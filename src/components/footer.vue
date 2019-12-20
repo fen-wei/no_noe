@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <ul>
+        <!-- <ul>
             <router-link to="/show" tag="li">
                 <span>
                     <img src="/static/img/shouye.png" alt="" v-show="!this.show">
@@ -36,6 +36,17 @@
                 </span>
                 <p>我的</p>
             </router-link> 
+            </ul>
+             -->
+        <ul>
+              <router-link v-for="(v,i) in list" @click="add(i)" :to="v.src" tag="li" :key="i"  >
+                <span>
+                    <img :src="v.img">
+                    <!-- <img :src="v.img2" alt="" > -->
+                    <!-- <img src="/static/img/lianxi02.png" alt="" v-show="this.show"> -->
+                </span>
+                <p>{{v.title}}</p>
+            </router-link> 
         </ul>
     </footer>
 </template>
@@ -44,14 +55,37 @@ export default {
     name:"fot",
     data(){
         return{
-            show: false
+            show: false,
+            list:[
+               {title:"首页",src:"/show",img:"/static/img/shouye.png",zt:true,img2:"/static/img/shouye02.png"},
+               {title:"课程",src:"/ke",img:"/static/img/kechengpng.png",zt:true,img2:"/static/img/kecheng02.png"},
+               {title:"约课记录",src:"/yue",img:"/static/img/yueke.png",zt:true,img2:"/static/img/yueke02.png"},
+               {title:"我的",src:"/li",img:"/static/img/lianxi.png",zt:true,img2:"/static/img/lianxi02.png"},
+               {title:"我的",src:"/wo",img:"/static/img/wode.png",zt:true,img2:"/static/img/lianxi02.png"}
+            ]
         }
     },
     methods:{
-        add(){
-            console.log("11")
-            this.show = !this.show;
+        add(i){
+        //    this.list[i].zt=!this.list[i].zt
+          alert(111)
         }
+    },
+    beforeRouteEnter(to,from,next){
+     console.log(to)
+     console.log(from)
+     next(true)
+    },
+    mounted () {
+        console.log(this.$route)
+        this.list.forEach(data=>{
+           if(this.$route.path==data.src){
+               console.log(data.img="/static/img"+data.src+"02.png")
+            //    data.img=data.img="/static/img"+data.src+"02.png"
+               data.img=data.img2
+           }
+        })
+       
     }
 }
 </script>
