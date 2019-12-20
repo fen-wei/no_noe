@@ -24,21 +24,7 @@
                        <li><img src="/static/img/img00.jpg" class="img00" alt=""></li>
                    </ul>
                    <h3>暂无模考安排,敬请期待</h3>
-                   <ul>
-                       <li>1111111111</li>
-                       <li>1111111111</li>
-                       <li>1111111111</li>
-                       <li>1111 我是DEV111111</li>
-                       <li>1111111111</li>
-                       <li>1111111111</li>
-                       <li>1111111111</li>
-                       <li>1111111111</li>
-                       <li>1111111111</li>
-                       <li>1111111111</li>
-                       <li>1111111111</li>
-                       <li>1111111111</li>
-                       <li>1111111111</li>
-                   </ul>
+                 
                  
                       
            </div>
@@ -55,7 +41,9 @@ export default {
 }
 </script>
 <style scoped lang="scss" scoped >
-  
+   a{
+       color: black;
+   }
     html,body,.box{
         width: 100%;
         height: 100%;
