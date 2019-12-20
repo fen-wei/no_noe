@@ -165,7 +165,7 @@ export default {
     }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
     body,ul,li,div,p,h1,h3,h6{
         margin: 0;
         padding: 0;
@@ -175,6 +175,8 @@ export default {
         width:100%;
         height:100%;
         background: #f0f2f5;
+        display: flex;
+        flex-direction: column;
     }
     .p-top{
         height:0.88rem;
@@ -202,8 +204,8 @@ export default {
     .p-message{
         margin-top: 0.2rem;
         background: #fff;
-        height: 5rem;
-        overflow: scroll;
+        flex:1;
+        overflow-y: scroll;
     }
     .p-message>ul{
         padding: 0.12rem 0.4rem;

@@ -3,7 +3,7 @@
         <div class="con">
             <div class="xq"> 
                 <div>
-                    <i class="fa fa-angle-left"></i>
+                    <i class="fa fa-angle-left" @click="aa()"></i>
                     <h3>讲师详情</h3>
                 </div>
             </div>
@@ -24,6 +24,7 @@
             <div class="cot">
                 <van-tabs v-model="activeName">
                     <van-tab title="标签 1" name="a" class="aa">
+                        <span>教学年龄 ：8年</span>
                         <p>这个家伙是个逗比,建设大街拉萨登记卡胜利大街萨克登记卡时间放大后即可是你擦健康大输出低技能课发多次济南市大成系技能</p>
                     </van-tab>
                     <van-tab title="标签 2" name="b" class="aa">
@@ -51,11 +52,16 @@ export default {
             this.$router.push({
                 path:"/yu"
             })
+        },
+        aa(){
+            this.$router.push({
+                path:"/show"
+            })
         }
     }
 }
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
     html,body,.big{
         width: 100%;
         height: 100%;
@@ -143,9 +149,20 @@ export default {
             width: 100%;
             background: #fff;
             padding-bottom: 0.5rem;
+            span{
+                width: 7rem;
+                margin:0 auto;
+                display: block;
+                font-size: 0.2rem;
+                margin-top: 0.2rem;
+                color: #999;
+            }
             p{
+                width: 7rem;
                 padding-top: 0.2rem; 
-                padding-left: 0.5rem;
+                font-size: 0.2rem;
+                margin: 0 auto;
+                color: #999;
             }
         }
     }

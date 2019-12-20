@@ -6,6 +6,9 @@ import keDetail from '@/components/ke/keDetail'
 import Yue from "@/components/yue/yue";
 import Oto from "@/components/yue/oneToOne";
 import Li from "@/components/li/li";
+
+import Zhuce from "@/components/wo/Zhuce"
+import Login from "@/components/wo/Login"
 import Wo from "@/components/wo/wo";
 import Yu from "@/components/show/fw-yuyue";
 import Person from "@/components/wo/Person"
@@ -13,9 +16,11 @@ import Edit from "@/components/wo/Edit"
 import Sex from "@/components/wo/Sex"
 import Course from "@/components/wo/Course"
 import Gai from "../gai/gai.vue"
+import Ms from "@/components/show/fw-msxq";
+
+
 import Tj from "@/components/li/zyp-Tj"
 import Zyp_Search from "@/components/li/zyp-Search"
-import Login from "@/components/li/Login"
 import Rl from "../components/show/rl/rl.vue"
 import Kex from "@/components/ke/kex"
 Vue.use(Router)
@@ -93,11 +98,17 @@ export default new Router({
       component: Zyp_Search
     },
     {
-       path:"/login",
-       component:Login
+      path:"/login",
+      name:"login",
+      component:Login
     },
-    {path:"/wo",redirect: "/login"}
-    ,{
+    {
+      path:"/zhuce",
+      name:"zhuce",
+      component:Zhuce
+    },
+    
+    {
       path:"/rl",
       name:"rl",
       component: Rl
@@ -112,6 +123,11 @@ export default new Router({
       path:"/kex",
       name:'kex',
       component: Kex
+    }
+    ,{
+      path:"/ms",
+      name:"ms",
+      component: Ms
     }
   ]
 })
