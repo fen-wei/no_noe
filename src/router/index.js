@@ -12,7 +12,7 @@ import Person from "@/components/wo/Person"
 import Edit from "@/components/wo/Edit"
 import Sex from "@/components/wo/Sex"
 import Course from "@/components/wo/Course"
-
+import Ms from "@/components/show/fw-msxq";
 import Tj from "@/components/li/zyp-Tj"
 import Zyp_Search from "@/components/li/zyp-Search"
 import Login from "@/components/li/Login"
@@ -100,7 +100,11 @@ export default new Router({
       path:"/rl",
       name:"rl",
       component: Rl
-
+    }
+    ,{
+      path:"/ms",
+      name:"ms",
+      component: Ms
     }
   ]
 })

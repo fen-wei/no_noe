@@ -23,7 +23,7 @@
                <div class="qwy-o">
                   明星讲师
                </div>
-               <div class="qwy-p">
+               <router-link to="ms" tag="div" class="qwy-p">
                    <div class="qwy-pa" v-for="(item,key) in list">
                         <div class="qwy-ps">
                             <img :src="item.img" alt="">
@@ -38,6 +38,7 @@
                             <p>{{item.miaoshu}}</p>
                         </div>
                    </div>
+
                  <div class="qwy-os">
                   明星讲师
                </div>
@@ -55,7 +56,7 @@
                         </div>
                    </div>
                    </div>
-               </div>
+               </router-link>
            </nav>
         </div>
         <Footer></Footer>
