@@ -116,14 +116,17 @@
                     </ul>
                 </div>
             </div>
-    <div class="box">
+             </div>
+             <Footer></Footer>
+              </div>
+    <!-- <div class="box">
         <header><i class="fa fa-chevron-left" aria-hidden="true" @click="tz"></i> </header>
         <div class="con">
           
         </div>
         
-        <Footer></Footer>
-    </div>
+        
+    </div> -->
 </template>
 <script>
 import Footer from "@/components/footer";
@@ -138,7 +141,7 @@ export default {
  
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
     body,ul,li,div,p,h6,h1{
         margin: 0;
         padding: 0;

@@ -54,7 +54,7 @@ export default {
     components: {Footer}
 }
 </script>
-<style scoped lang="scss" >
+<style scoped lang="scss" scoped >
   
     html,body,.box{
         width: 100%;

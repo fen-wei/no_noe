@@ -70,7 +70,7 @@ export default {
     }
 }
 </script>
-<style  lang="scss">
+<style  lang="scss" scoped>
     body,ul,li,div,p,h1,h3,h6{
         margin: 0;
         padding: 0;

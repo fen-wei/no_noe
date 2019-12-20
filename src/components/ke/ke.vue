@@ -185,7 +185,7 @@ select(){
     },
 }
 </script>
-<style scoped lang="scss">
+<style scoped lang="scss" scoped>
     html,body,.box{
         width: 100%;
         height: 100%;
