@@ -21,7 +21,7 @@ export default {
                {title:"首页",src:"/show",img:"/static/img/shouye.png",zt:true,img2:"/static/img/shouye02.png"},
                {title:"课程",src:"/ke",img:"/static/img/kechengpng.png",zt:true,img2:"/static/img/kecheng02.png"},
                {title:"约课记录",src:"/yue",img:"/static/img/yueke.png",zt:true,img2:"/static/img/yueke02.png"},
-               {title:"课程",src:"/li",img:"/static/img/lianxi.png",zt:true,img2:"/static/img/lianxi02.png"},
+               {title:"练习",src:"/li",img:"/static/img/lianxi.png",zt:true,img2:"/static/img/lianxi02.png"},
                {title:"我的",src:"/wo",img:"/static/img/wode.png",zt:true,img2:"/static/img/lianxi02.png"}
             ]
         }
