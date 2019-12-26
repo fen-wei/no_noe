@@ -9,15 +9,16 @@
         </div>
         <div class="p-message">
             <ul>
-                <li>
+                <li> 
                     <span>头像</span>
                     <span>
-                        <img src="https://msmk2019.oss-cn-shanghai.aliyuncs.com/uploads/avatar.jpg" alt="">
+                        <img :src="img" alt="">
                         <van-icon class="vion" name="arrow" @click="showPopup"/>
                         <van-popup v-model="show" position="bottom" :style="{ height: '30%' }">
                             <ul class="s-thing">
                                 <li>拍照</li>
                                 <li>从手机相册选择</li>
+                                <li><input type="file" ref="upload" @change="select"></li>
                                 <li>取消</li>
                             </ul>
                         </van-popup>
@@ -27,32 +28,34 @@
                 <li>
                     <span>昵称</span>
                     <span>
-                        <span>135****4519</span>   
+                        <span>{{this.$store.state.User.userInfoAttr.nickname}}</span>   
                         <van-icon name="arrow" @click="showapp1"/>
                     </span>
                 </li>
                 <li>
                     <span>手机号</span>
                     <span>
-                        <span>13520844519</span>
+                        <span>{{this.$store.state.User.userInfoAttr.mobile}}</span> 
                     </span>
                 </li>
                 <li>
                     <span>性别</span>
                     <span>
-                        <span>女</span>   
+                        <span>{{this.$store.state.User.userInfoAttr.sex==0?"男":"女"}}</span>   
                         <van-icon name="arrow" @click="showapp2"/>
                     </span>
                 </li>
                 <li>
                     <span>出生日期</span>
                     <span>
-                        <span>2001-07-19</span>   
+                        <span>{{this.$store.state.User.userInfoAttr.birthday}}</span>   
                         <van-icon name="arrow" @click="showPopup1"/>
                         <van-popup v-model="show1" position="bottom" :style="{ height: '30%' }">
                             <van-datetime-picker
-                                v-model="currentDate"
                                 type="date"
+                                @confirm="date"
+                                :min-date="minDade"
+                                :max-date="maxDade"
                                 />
                         </van-popup>
                     </span>
@@ -60,24 +63,24 @@
                 <li>
                     <span>所在城市</span>
                     <span>
-                        <span>北京,北京市,东城区</span>   
+                        <span>{{this.$store.state.User.userInfoAttr.province_name}}-{{this.$store.state.User.userInfoAttr.city_name}}-{{this.$store.state.User.userInfoAttr.district_name}}</span>   
                         <van-icon name="arrow" @click="showPopup2"/>
                         <van-popup v-model="show2" position="bottom" :style="{ height: '30%' }">
-                            <van-area :area-list="areaList" />
+                            <van-area :area-list="areaList" @change="csc" @confirm="cit"/>
                         </van-popup>
                     </span>
                 </li>
                 <li>
                     <span>课程</span>
                     <span>
-                        <span>语文</span>   
+                        <span v-for="item in this.$store.state.User.Attr">{{item.attr_value+" "}}</span>   
                         <van-icon name="arrow" @click="showapp3"/>
                     </span>
                 </li>
                 <li>
                     <span>年级</span>
                     <span>
-                        <span>高三</span>   
+                        <span></span>   
                         <van-icon name="arrow" @click="showPopup3"/>
                         <van-popup v-model="show3" position="bottom" :style="{ height: '30%' }">
                                 <van-picker
@@ -94,54 +97,154 @@
     </div>
 </template>
 <script>
+import http from "../http/http"
 export default {
     name:"person",
     data() {
         return {
-            columns: ['小学一年级', '小学二年级', '小学三年级', '小学四年级', '小学五年级','小学六年级','初一','初二','初三','高一','高二','高三'],
-            currentDate: new Date(),
+            columns:[],
+            minDade:new Date(1970,0,1),
+            maxDade:new Date(2020,1,1),
             show: false,
             show1:false,
             show2:false,
             show3:false,
             areaList:{
-                province_list: {
-                    110000: '北京市',
-                    120000: '天津市'
-                },
-                city_list: {
-                    110100: '北京市',
-                    110200: '县',
-                    120100: '天津市',
-                    120200: '县'
-                },
-                county_list: {
-                    110101: '东城区',
-                    110102: '西城区',
-                    110105: '朝阳区',
-                    110106: '丰台区',
-                    120101: '和平区',
-                    120102: '河东区',
-                    120103: '河西区',
-                    120104: '南开区',
-                    120105: '河北区'
-                    
-                }
-            }
+                province_list: {},
+                city_list: {},
+                county_list: {}
+            },
+            img:""
         }
     },
+    mounted(){
 
+        this.getUserInfoAndAttr()
+    },
     methods: {
+        select(val){
+            console.log(val)
+            var file = this.$refs.upload.files[0];
+            console.log(file)
+            var formdata = new FormData() //创建form对象
+            formdata.append("file",file); //通过appen向from对象添加数据，可以通过append继续添加数据
+            let config = {
+                headers:{'Content-Type':'multipart/form-data;boundary=----WebKitFormBoundarypXP5Pa4AAVRml',Authorization: "Bearer "+ this.$store.state.User.userInfo.remember_token }
+            }//添加请求头
+            let _this = this;
+            this.$axios.post("https://www.365msmk.com/api/app/public/img",formdata,config).then((res)=>{
+                if(res.data.code == 200){
+                    this.$axios.put("https://test.365msmk.com/api/app/user",{
+                        avatar:res.data.data.path
+                    },{
+                        headers:{Authorization: "Bearer "+this.$store.state.User.userInfo.remember_token}
+                    }).then((res)=>{
+                        console.log(res.data.data.avatar);
+                        this.img = res.data.data.avatar;
+                    })
+                }
+            })
+
+        },
+        async getUserInfoAndAttr(){
+            var token = this.$store.state.User.userInfo.remember_token;
+            var userInfoAttr = await http("get","https://test.365msmk.com/api/app/userInfo?",null,token);
+            this.$store.commit("setUserInfoAttr",userInfoAttr.data.data);
+            this.$store.commit("getAttr",userInfoAttr.data.data.attr);
+            var attr = await http("get","https://test.365msmk.com/api/app/module/attribute/1?",null,token);
+            this.$store.commit("setAttr",attr.data.data);
+        },
+        async date(value){
+            var date = value;
+            var m = date.getMonth() + 1;
+            var d = date.getDate();
+            if (m >= 1 && m <= 9) {
+                m = "0" + m;
+            }
+            if (d >= 0 && d <= 9) {
+                d = "0" + d;
+            }
+            var reqdata= date.getFullYear() + "-" + m + "-" + d
+            // this.$toast(date.getFullYear() + "-" + m + "-" + d)
+           var token = this.$store.state.User.userInfo.remember_token;
+           var nic = await http("put","https://test.365msmk.com/api/app/user",{
+                birthday: reqdata
+            },token);
+            this.show1 = !this.show1
+            this.getUserInfoAndAttr()
+        },
         showPopup() {
             this.show = true;
         },
         showPopup1() {
-            this.show1 = true;
+            this.show1 = true;      
         },
-        showPopup2() {
+        //城市开始
+        async showPopup2() {
+            var token = this.$store.state.User.userInfo.remember_token;
+            var shen = await http("get","https://test.365msmk.com/api/app/sonArea/0?",null,token);
+            var obj = {}
+            shen.data.data.forEach((v,i)=>{
+                obj[v.id] = v.area_name
+            })
+            this.areaList.province_list = obj
+            var shi = await http("get","https://test.365msmk.com/api/app/sonArea/110000?",null,token);
+            var obj1 = {};
+            shi.data.data.forEach((v,i)=>{
+                obj1[v.id] = v.area_name
+            })
+            this.areaList.city_list = obj1
+            var qu = await http("get","https://test.365msmk.com/api/app/sonArea/110100?",null,token);
+            var obj2 = {};
+            qu.data.data.forEach((v,i)=>{
+                obj2[v.id] = v.area_name
+            })
+            this.areaList.county_list = obj2
             this.show2 = true;
         },
+        async csc(Picker,value,index){
+            console.log(value)
+            var c =value[0].code; 
+            var token = this.$store.state.User.userInfo.remember_token;
+            var shi = await http("get","https://test.365msmk.com/api/app/sonArea/"+c+"?",null,token);
+            var obj1 = {};
+            shi.data.data.forEach((v,i)=>{
+                obj1[v.id] = v.area_name
+            })
+            var b = value[0].code;
+            var bb = parseInt( b)+100;
+            console.log(bb)
+            var qu = await http("get","https://test.365msmk.com/api/app/sonArea/"+bb+"?",null,token);
+            var obj2 = {};
+            qu.data.data.forEach((v,i)=>{
+                obj2[v.id] = v.area_name
+            })
+            this.areaList.county_list = obj2
+            this.areaList.city_list = obj1
+        },
+        async cit(val){
+          
+
+            var token = this.$store.state.User.userInfo.remember_token;
+            var nic = await http("put","https://test.365msmk.com/api/app/user",{
+                city_id: val[1].code,
+                district_id: val[2].code,
+                province_id: val[0].code
+            },token);
+            this.getUserInfoAndAttr();
+            this.show2 = !this.show2
+        },
+        //城市结束
+        //年级数据的渲染
         showPopup3() {
+            var a = this.$store.state.User.attr[0].value;
+            console.log(a);
+            a.sort(function(a,b){
+                return a.id -b.id
+            })
+            a.forEach((v)=>{
+                this.columns.push(v.name)
+            })
             this.show3 = true;
         },
         showapp1(){
@@ -156,12 +259,20 @@ export default {
         back(){
             this.$router.push("/wo")
         },
-        onConfirm(value, index) {
-            Toast(`当前值：${value}, 当前索引：${index}`);
+        //年级开始
+        async onConfirm(val,id) {
+            var a = this.$store.state.User.attr[0].value;
+            var obj = {"attr_id":1,"attr_val_id":a.id}
+            console.log(obj)
+            var token = this.$store.state.User.userInfo.remember_token;
+            var nic = await http("put","https://test.365msmk.com/api/app/user",{
+                user_attr:JSON.stringify(this.attr)
+            },token);
         },
         onCancel() {
-            Toast('取消');
+            // Toast('取消');
         }
+        //年级取消
     }
 }
 </script>

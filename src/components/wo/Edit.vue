@@ -6,24 +6,34 @@
             </div>
             <h3>修改个人信息</h3>
             <div class="e-right">
-                <p>保存</p>
+                <p @click="bc">保存</p>
+               
             </div>
         </div>
         <div class="e-tellphone">
-            <input type="text" value="135****4519">
+            <input type="text" v-model="nickname"  >
         </div>
     </div>
 </template>
 <script>
+import http from "../http/http"
 export default {
     name:"Edit",
     data(){
         return {
-
+            nickname: this.$store.state.User.userInfoAttr.nickname,
         }
     },
     methods:{
         e_back(){
+            this.$router.push("/person")
+        },
+        async bc(){
+            console.log(this.nickname)
+            var token = this.$store.state.User.userInfo.remember_token;
+            var nic = await http("put","https://test.365msmk.com/api/app/user",{
+                nickname:this.nickname
+            },token);
             this.$router.push("/person")
         }
     }

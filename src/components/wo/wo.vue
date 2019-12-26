@@ -7,11 +7,11 @@
                         <div class="lmn-person">
                             <img @click="person()" src="https://msmk2019.oss-cn-shanghai.aliyuncs.com/uploads/avatar.jpg" alt="">
                             <img @click="person()" src="/static/img/huangguan.png" alt="">  
-                            <span @click="to_register()">注册/登录</span>  
+                            <span @click="to_register()">{{this.$store.state.mobel?this.$store.state.mobel:"注册/登录"}}</span>  
                             <p @click="person()"></p>
                             <p>去约课</p>    
                         </div>
-                        <div class="lmn-price">
+                            <div class="lmn-price">
                             <ul>
                                 <li @click="study()">
                                     <h1>0</h1>
@@ -129,6 +129,7 @@ export default {
     
     methods:{
         person(){
+            
             this.$router.push("/person")
         },
         to_register(){

@@ -37,13 +37,7 @@ export default {
     },
     methods:{
         d_back(){
-            this.$router.push("/wo")
-        },
-        to_ke(){
-            this.$router.push("/ke")
-        },
-        to_date(){
-            this.$router.push("/rl")
+            this.$router.push('/')
         }
     }
 }

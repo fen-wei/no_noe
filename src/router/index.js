@@ -22,7 +22,7 @@ import Course from "@/components/wo/Course"
 import Gai from "../gai/gai.vue"
 import Ms from "@/components/show/fw-msxq";
 
-
+import Message from "@/components/wo/Message";
 import Tj from "@/components/li/zyp-Tj"
 import Zyp_Search from "@/components/li/zyp-Search"
 import Rl from "../components/show/rl/rl.vue"
@@ -33,6 +33,11 @@ Vue.use(Router)
 export default new Router({
   mode:"history",
   routes: [
+    {
+      path:"/message",
+      name:"message",
+      component:Message
+    },
     {
       path:"/show",
       name:"show",

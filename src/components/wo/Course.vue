@@ -6,65 +6,46 @@
             </div>
             <h3>修改个人信息</h3>
             <div class="c-right">
-                <p>保存</p>
+                <p @click="bc()">保存</p>
             </div>
         </div>
         <div class="c-our">
             <ul>
-                <li>
-                    <input type="checkbox">
-                    <span>语文</span>
-                </li>
-                <li>
-                    <input type="checkbox">
-                    <span>数学</span>
-                </li>
-                <li>
-                    <input type="checkbox">
-                    <span>英语</span>
-                </li>
-                <li>
-                    <input type="checkbox">
-                    <span>物理</span>
-                </li>
-                <li>
-                    <input type="checkbox">
-                    <span>地理</span>
-                </li>
-                <li>
-                    <input type="checkbox">
-                    <span>化学</span>
-                </li>
-                <li>
-                    <input type="checkbox">
-                    <span>生物</span>
-                </li>
-                <li>
-                    <input type="checkbox">
-                    <span>政治</span>
-                </li>
-                <li>
-                    <input type="checkbox">
-                    <span>历史</span>
-                </li>
-                <li>
-                    <input type="checkbox">
-                    <span>信息技术</span>
+                <li v-for="(item,index) in kecheng" :key="index" >
+                    <input type="checkbox" @click="dian(item)"  >
+                    <span>{{item.name}}</span>
                 </li>
             </ul>
         </div>
     </div>
 </template>
 <script>
+import http from "../http/http"
 export default {
     name:"course",
     data(){
         return {
-
+            kecheng:this.$store.state.User.attr[1].value,
+            show:false,
+            attr:[]
         }
     },
+
     methods:{
         c_back(){
+            this.$router.push("/person")
+        },
+        dian(item){
+            var obj = {"attr_id":2,"attr_val_id":item.id};
+            console.log(obj)
+            this.attr.push(obj);
+            console.log(this.attr)
+        },
+        async bc(){
+            var token = this.$store.state.User.userInfo.remember_token;
+            var nic = await http("put","https://test.365msmk.com/api/app/user",{
+                user_attr:JSON.stringify(this.attr)
+            },token);
             this.$router.push("/person")
         }
     }

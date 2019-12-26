@@ -6,10 +6,10 @@
             
         <div class="z-main">
             <div class="inp-user">
-                <input type="text" placeholder="请输入手机号">
+                <input type="text" placeholder="请输入手机号" v-model="db">
             </div>
             <div class="inp-user">
-                <input type="text" placeholder="请输入密码">
+                <input type="text" placeholder="请输入密码" v-model="pass">
             </div>
             <div class="inp-con">
                 <span>找回密码</span>
@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="z-button">
-            <span>登录</span>
+            <span @click="dl()">登录</span>
         </div>
        
     </div>
@@ -26,9 +26,34 @@
 <script>
 export default {
    name:"Zhuce",
+   data(){
+       return{
+           db:"",
+           pass:""
+       }
+   },
    methods:{
        register(){
            this.$router.push("/login")
+       },
+       dl(){
+           this.$axios.post("https://test.365msmk.com/api/app/login",{
+                mobile: this.db,
+                password: this.pass,
+                type: 1		
+           },{
+               
+           }).then((res)=>{
+               if(res.data.code==200){
+                   this.$router.push("/wo");
+                   this.$store.commit("setUserInfo",res.data.data)
+                   console.log(res)
+               }else{
+                   this.$router.push("/wo");
+                   console.log(res)
+               }
+               
+           })
        }
    }
 }

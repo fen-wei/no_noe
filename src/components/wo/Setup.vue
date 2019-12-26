@@ -15,7 +15,7 @@
               <van-icon name="arrow" />
           </div>
           <div class="u-quit">
-              <p>退出登录</p>
+              <p @click="tui()">退出登录</p>
           </div>
       </div>
     </div>
@@ -24,9 +24,18 @@
 <script>
   export default {
     name: 'Setup',
+    data(){
+        return{
+        }
+    },
     methods:{
       u_back(){
         this.$router.push("/wo")
+      },
+      tui(){
+          sessionStorage.removeItem("token");
+          this.$store.state.mobel="注册/登录";
+          this.$router.push("/wo")
       }
     }
   }

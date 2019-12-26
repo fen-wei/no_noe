@@ -6,28 +6,51 @@
             </div>
             <h3>修改个人信息</h3>
             <div class="s-right">
-                <p>保存</p>
+                <p @click="bc()">保存</p>
             </div>
         </div>
         <div class="s-sex">
             <ul>
-                <li>男</li>
-                <li>女</li>
+                <li @click="val=0" :class="!val?'bbb':''">男</li>
+                <li @click="val=1" :class="val?'bbb':''">女</li>
+                {{val}}
             </ul>
         </div>
     </div>
 </template>
 <script>
+import http from "../http/http"
 export default {
     name:"Sex",
     data(){
         return {
-
+            val : this.$store.state.User.userInfoAttr.sex
         }
     },
     methods:{
         s_back(){
             this.$router.push("/person")
+        },
+        async bc(){
+            var token = this.$store.state.User.userInfo.remember_token;
+            var nic = await http("put","https://test.365msmk.com/api/app/user",{
+                sex:this.val
+            },token);
+            this.$router.push("/person")
+        //     this.$axios.put("https://test.365msmk.com/api/app/user",{
+        //        sex:this.$store.state.sex = this.val
+        //    },{
+        //         headers: { Authorization: "Bearer " + localStorage.getItem("token")}
+        //    }).then((res)=>{
+        //        console.log(res)
+        //    })
+
+        //    this.$axios.get("https://test.365msmk.com/api/app/userInfo?",{
+        //         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
+        //    }).then((res)=>{
+        //         console.log(this.val)
+        //         this.$router.push("/person")
+        //    })
         }
     }
 }
@@ -89,7 +112,7 @@ export default {
         line-height: 1.1rem;
         position: relative;
     }
-    .s-sex>ul>li:nth-child(2){
+    .bbb{
         background: url(/static/img/duigou.png) no-repeat 5.8rem;
     }
 </style>
